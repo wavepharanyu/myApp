@@ -41,7 +41,7 @@ function TabContainer(props) {
 
   function handleNext() {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
-    setText('');
+    //setText('');
   }
 
   function handleBack() {
@@ -50,6 +50,10 @@ function TabContainer(props) {
 
   function handleReset() {
     setActiveStep(0);
+  }
+
+  function convertString(str) {
+    return JSON.stringify(str);
   }
 
   return (
@@ -72,7 +76,7 @@ function TabContainer(props) {
             shrink: true,
           }}
           value={text}
-          onChange={(text)=>{setText(text.toString())}}
+          onChange={(text)=>{setText(text.convertString)}}
         />
          <div>
         {activeStep === steps.length ? (
@@ -87,7 +91,7 @@ function TabContainer(props) {
               >
                 <KeyboardArrowLeft style={{fontSize: '64px'}}/>
               </Button>
-              <Button  color="primary" onClick={() => {if (text !== '') { handleNext(); setText('')}}}>
+              <Button  color="primary" onClick={() => {if (text !== '') { handleNext(); setText("");}}}>
                 {activeStep === steps.length - 1 ? 'Finish' : <KeyboardArrowRight style={{fontSize: '64px'}}/>}
               </Button>
             </div>
