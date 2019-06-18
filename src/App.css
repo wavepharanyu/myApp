@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  
 }
 
 .App-logo {
@@ -21,6 +21,38 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.nav-bar{
+  background-color: #2da3ff;
+  display: block;
+  height: 70px;
+}
+
+.body{
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.topic{
+  font-size: 25px;
+  padding-right: 10px;
+}
+
+.quiz{
+  margin-top: 10px;
+  padding: 30px; 
+  
+}
+
+.arrow{
+  padding-top: 50px;
+  text-align: right;
+}
+
+.stepperArea{
+  margin-top: 20px;
 }
 
 @keyframes App-logo-spin {
