@@ -31,14 +31,17 @@ function TabContainer(props) {
   const handleChange = name => event => {
     setText({ ...text, [name]: event.target.text });
   };
-
-  const handleSent = name => event => {
-    setText({ ...text, [name]: "" });
-  };
+ 
+  const clear = () => {
+    this.setState({
+      text: ''
+    })
+  }
 
 
   function handleNext() {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
+    setText('');
   }
 
   function handleBack() {
@@ -68,8 +71,8 @@ function TabContainer(props) {
           InputLabelProps={{
             shrink: true,
           }}
-          onChange={handleChange('name')}
-          value={text.name}
+          value={text}
+          onChange={(text)=>{setText(text.toString())}}
         />
          <div>
         {activeStep === steps.length ? (
@@ -84,7 +87,7 @@ function TabContainer(props) {
               >
                 <KeyboardArrowLeft style={{fontSize: '64px'}}/>
               </Button>
-              <Button  color="primary" onClick={() => {if (text !== '') { handleNext(); handleSent();}}}>
+              <Button  color="primary" onClick={() => {if (text !== '') { handleNext(); setText('')}}}>
                 {activeStep === steps.length - 1 ? 'Finish' : <KeyboardArrowRight style={{fontSize: '64px'}}/>}
               </Button>
             </div>
